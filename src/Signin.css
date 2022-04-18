@@ -1,0 +1,76 @@
+/* html{
+    font-family: 'Courier New', monospace;
+  }
+   */
+  
+  /* body {
+      width: 350px;
+      height: auto;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+  } */
+  
+
+  
+.form {
+    position:relative;
+    bottom:21px;
+    display: block;
+    text-align: center;
+    /* padding: 5px; */
+    border: solid 1px pink;
+    background-color: pink;
+    margin: 20px;
+    padding-bottom: 12px;
+    border-end-end-radius: 8px;
+    border-end-start-radius: 8px;
+    padding-bottom: 15px;
+  }
+  
+input{
+    padding: 8px;
+    margin-bottom: 10px;
+    border:1px solid pink;
+    border-radius: 8px;
+}
+  
+.button{
+    background-color: coral;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 1px solid coral;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+  }
+  
+.connexion{
+    display: block;
+    border: solid 1px pink;
+    background-color: pink;
+    margin: 20px;
+    padding-bottom: 12px;
+    border-radius: 8px;
+}
+.txt{
+    font-size: smaller;
+    text-align: center;
+} 
+
+.connect{
+    background-color: coral;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 1px solid coral;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+} 
+
+  
