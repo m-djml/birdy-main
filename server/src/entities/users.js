@@ -1,3 +1,14 @@
+/*const userSchema = new mongoose.Schema({
+  prenom : String,
+  nom : String,
+  username : String,
+  email : String,
+  profilPic : String,
+  description : String,
+  friends : String,
+  posts : String
+});
+*/
 class Users {
   constructor(db) {
     this.db = db
@@ -64,4 +75,3 @@ class Users {
 }
 
 exports.default = Users;
-
