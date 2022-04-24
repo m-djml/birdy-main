@@ -1,17 +1,3 @@
-/* html{
-    font-family: 'Courier New', monospace;
-  } */
-  
-  
-  /* body {
-      width: 350px;
-      height: auto;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-  } */
-
 .loginpage{
     width: 350px;
     height: auto;
@@ -48,9 +34,8 @@
     padding-bottom: 30px;
 
 }
-
   
-.form {
+.form_login {
     position:relative;
     bottom:21px;
     display: block;
@@ -63,14 +48,16 @@
     border-end-end-radius: 8px;
     border-end-start-radius: 8px;
     padding-bottom: 15px;
-  }
-  
-.form > input{
-      padding: 8px;
-      margin-bottom: 10px;
-      border:1px solid pink;
-      border-radius: 8px;
 }
+
+input{
+    padding: 8px;
+    margin-bottom: 10px;
+    border:1px solid pink;
+    border-radius: 8px;
+}
+  
+
   
 .button{
     background-color: coral;

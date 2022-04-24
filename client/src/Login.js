@@ -38,9 +38,9 @@ class Login extends React.Component{
               <img className="logo" src={logo} alt="logo"/>
             </div>
             
-            <div className="form">
+            <div className="form_login">
                 <form onSubmit={this.handleSubmit}>
-                <input type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>
+                <input id ='username' type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>
                 <input type="password" id="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
                 <button className="button">Connexion</button>
                 </form>

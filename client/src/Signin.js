@@ -46,7 +46,7 @@ class Signin extends React.Component{
               <img className="logo" src={logo} alt="logo"/>
           </div>
 
-          <div className="form">
+          <div className="form_signin">
           <form onSubmit={this.handleSubmit}>
           <input type="text" id="prenom" name="firstName" placeholder="Prénom" value={this.state.firstName} onChange={this.handleChange}/>
           <input type="text" id="nom" name="lastName" placeholder="Nom" value={this.state.lastName} onChange={this.handleChange}/>
