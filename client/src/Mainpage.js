@@ -5,25 +5,24 @@ class Mainpage extends React.Component {
         super(props);
         this.state = {
             isConnected : false,
-            currentpage : "connexion",
             currentUser : ''
         };
         this.setLogout = this.setLogout.bind(this);
         this.getConnected = this.getConnected.bind(this);
     }
+
     setLogout(){ 
-        this.setState({isConnected : false});
-        changeCurrentPage();
+        this.setState({
+            isConnected : false
+        });
     }
 
     getConnected(){
-        this.setState({isConnected : true});
-        changeCurrentPage();
+        this.setState({
+            isConnected : true
+        });
     }
 
-    changeCurrentPage(){
-
-    }
 
     render (){
         return (<div>

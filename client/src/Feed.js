@@ -2,6 +2,7 @@ import React from 'react'
 import FormAddMsg from './FormAddMsg'
 import MessagesList from './MessagesList'
 import './Feed.css';
+import Message from './Message';
 
 class Feed extends React.Component {
     constructor(props){
@@ -18,15 +19,27 @@ class Feed extends React.Component {
             );
     }
     render(){
+        const list_msg = [
+            <Message/>,
+            <Message/>,
+            <Message/>,
+            <Message/>,
+            <Message/>
+        ]
         return (
+            
             <div className='feed'>
-                {/* Header */}
-                <h2 className="headerfeed">Home</h2>
-                {/* BirdBox */}
-                <FormAddMsg addMessage={this.addMessage}/>
+                <div className='headerfeed'>
+                    <h2 className="titlefeed">Home</h2>
+                </div>
+                <div className='form_message'>
+                    <FormAddMsg addMessage={this.addMessage}/>
+                </div>
                 {/* Posts*/}
-                <MessagesList listmsg={this.state.listmsg}/>
-
+                <div className='messages_feed'>
+                    <MessagesList listmsg={list_msg}/>
+                {/* <MessagesList listmsg={this.state.listmsg}/> */}
+                </div>
             </div>
         )
     }

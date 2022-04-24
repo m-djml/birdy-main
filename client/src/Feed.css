@@ -3,9 +3,24 @@
     border-right: 2px solid aliceblue;
     min-width: fit-content;
     overflow-y: scroll ;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.titlefeed{
+    margin-bottom: 8px;
+}
+
+.fedd::-webkit-scrollbar{
+    display: none;
 }
 
 .headerfeed{
-    margin-bottom: 5px;
+    position: sticky;
+    background-color: white;
+    top : 0;
+    z-index: 100;
     border-bottom: 2px solid aliceblue;
+    /* border-left: 2px solid aliceblue; */
+    padding: 5px 15px;
 }
