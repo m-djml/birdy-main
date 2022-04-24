@@ -65,12 +65,12 @@
     padding-bottom: 15px;
   }
   
-  input{
+.form > input{
       padding: 8px;
       margin-bottom: 10px;
       border:1px solid pink;
       border-radius: 8px;
-  }
+}
   
 .button{
     background-color: coral;
