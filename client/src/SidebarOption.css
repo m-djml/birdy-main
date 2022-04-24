@@ -1,7 +1,13 @@
+.navOption{
+    text-decoration: none;
+    text-decoration-color: none;
+    color:black;
+}
 .sidebarOption{
     display: flex;
     align-items: center;
     cursor: pointer;
+    padding-left: 20px;
 }
 
 .sidebarOption:hover {

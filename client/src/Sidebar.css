@@ -5,11 +5,12 @@
     padding-right: 40px;
 
     /* padding-left: auto;
-    padding-right: auto; */
+    padding-right: auto;  */
 }
-.logo{
-    max-width: auto;
-    max-height: auto;
-    height: 50px;
-    margin: 12px;
+#logo{
+    /* max-width: auto;
+    max-height: auto; */
+    height: 40px;
+    padding-bottom: 20px;
+    margin-left: 15%;
 }

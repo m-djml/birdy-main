@@ -21,7 +21,7 @@ class Feed extends React.Component {
         return (
             <div className='feed'>
                 {/* Header */}
-                <h2>Home</h2>
+                <h2 className="headerfeed">Home</h2>
                 {/* BirdBox */}
                 <FormAddMsg addMessage={this.addMessage}/>
                 {/* Posts*/}

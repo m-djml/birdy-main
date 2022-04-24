@@ -8,7 +8,7 @@ class MessagesList extends React.Component {
     }
 
     render(){
-        return (<div class="messageslist">
+        return (<div className="messageslist">
             {this.state.messages.map((msg)=>{
              return <Message profil = {msg.profil} contenu = {msg.contenu} date = {msg.date}/>;
     })}

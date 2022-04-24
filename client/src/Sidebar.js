@@ -16,13 +16,13 @@ class Sidebar extends React.Component{
 
     render(){
         return (<div className="sidebar">
-            <img className="logo" src={logo} alt="logo"/>
-            <SidebarOption SvgIcon={HomeRoundedIcon} text="Home"/>
-            <SidebarOption SvgIcon={AccountCircleIcon} text="Profil" />
-            <SidebarOption SvgIcon={ContactsIcon} text="Abonnés"/>
-            <SidebarOption SvgIcon={ContactsIcon} text="Abonnements"/>
-            <SidebarOption SvgIcon={SearchIcon} text="Explorer"/>
-            <SidebarOption SvgIcon={LogoutIcon} text="Déconnexion"/>
+            <img id="logo" src={logo} alt="logo"/>
+            <SidebarOption SvgIcon={HomeRoundedIcon} text="Home" path="/homepage"/>
+            <SidebarOption SvgIcon={AccountCircleIcon} text="Profil" path="/profil" />
+            <SidebarOption SvgIcon={ContactsIcon} text="Abonnés" path="/"/>
+            <SidebarOption SvgIcon={ContactsIcon} text="Abonnements" path="/"/>
+            <SidebarOption SvgIcon={SearchIcon} text="Explorer" path="/"/>
+            <SidebarOption SvgIcon={LogoutIcon} text="Déconnexion" path="/"/>
             
         </div>
 

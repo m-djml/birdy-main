@@ -1,5 +1,6 @@
 import React from 'react'
 import './FormAddMsg.css';
+import Avatar from '@mui/material/Avatar';
 
 class FormAddMsg extends React.Component {
     constructor(props){
@@ -23,6 +24,7 @@ class FormAddMsg extends React.Component {
 
     render(){
         return (<div className="formaddmsg">
+            <Avatar alt="pic" src="./defaultUserPic.png" />
             <form>
                 <input className="messageinput" type="textarea" placeholder="Votre message" onChange={this.handleChangeMsg} value={this.state.message} ref='msg'/>
                 <button className="poster" onSubmit={((event) => this.sendMessage(event))}>Poster</button>

@@ -11,7 +11,43 @@
       top: 50%;
       transform: translate(-50%, -50%);
   } */
-  
+
+.loginpage{
+    width: 350px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bienvenue{
+    display: block;
+    border: solid 1px pink;
+    background-color: pink;
+    margin: 20px;
+    padding-bottom: 12px;
+    border-top-left-radius: 8px;
+    border-start-end-radius: 8px;
+}
+
+.birdy{
+    color:coral;
+    text-align: center;
+    font-style: oblique;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo{
+    max-width: auto;
+    max-height: auto;
+    height:50px;
+    text-align: center;
+    margin:auto;
+    display: flex;
+    padding-bottom: 30px;
+
+}
 
   
 .form {
@@ -62,15 +98,9 @@
 } 
 
 .signin{
-    background-color: coral;
     color: white;
     font-weight: bold;
-    border-radius: 8px;
-    border: 1px solid coral;
-    display: flex;
-    text-align: center;
-    margin: auto;
-    margin-top: 20px;
+    margin-left: 30%;
 } 
 
   

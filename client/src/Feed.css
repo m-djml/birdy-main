@@ -4,3 +4,8 @@
     min-width: fit-content;
     overflow-y: scroll ;
 }
+
+.headerfeed{
+    margin-bottom: 5px;
+    border-bottom: 2px solid aliceblue;
+}

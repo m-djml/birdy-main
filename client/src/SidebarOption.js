@@ -1,17 +1,20 @@
 import React from 'react';
 import "./SidebarOption.css"
 import SvgIcon from '@mui/material/SvgIcon';
-
+import { NavLink } from 'react-router-dom'
 
 class SidebarOption extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
-        return (<div className="sidebarOption">
+        return (
+        <NavLink to={this.props.path} className="navOption">
+        <div className="sidebarOption">
             <SvgIcon component={this.props.SvgIcon} />
             <h2>{this.props.text}</h2>
         </div>
+        </NavLink>
     )
     } 
 }
