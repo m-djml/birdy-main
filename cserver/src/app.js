@@ -11,7 +11,9 @@ api_1 = require("./api.js");
 const session = require("express-session");
 
 app.use(session({
-    secret: "technoweb rocks"
+    secret: "technoweb rocks",
+    resave: true,
+    saveUninitialized: true
 }));
 
 app.use('/api', api.default());
@@ -20,4 +22,3 @@ app.use('/api', api.default());
 app.on('close', () => {
 });
 exports.default = app;
-
