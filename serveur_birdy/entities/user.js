@@ -25,6 +25,7 @@ module.exports.getUser = (req, res) => {
     })
 }
 
+
 module.exports.updateUser = async (req, res) => {
     try {
         const upd_user = await UserModel.findOneAndUpdate(

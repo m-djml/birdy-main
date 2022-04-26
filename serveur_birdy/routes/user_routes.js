@@ -1,4 +1,7 @@
 const UserModel = require("../models/user_model.js");
+const user = require("../entities/user");
+const message = require("../entities/message");
+
 const express = require('express');
 
 const router = express.Router();
