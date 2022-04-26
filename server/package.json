@@ -1,24 +1,17 @@
 {
-  "name": "birdy",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Mon app birdy côté serveur",
+  "description": "Birdy server",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "test": "mocha test",
-    "serve": "node src/index.js"
+    "start": "nodemon src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chai": "^4.3.0",
-    "chai-http": "^4.3.0",
-    "connect-mongo": "^4.6.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-session": "^1.17.1",
-    "mocha": "^9.2.2",
-    "mongoose": "^6.3.0",
-    "path": "^0.12.7"
+    "express": "^4.17.3",
+    "mongoose": "^6.3.1",
+    "nodemon": "^2.0.15"
   }
 }
