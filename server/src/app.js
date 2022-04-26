@@ -6,11 +6,14 @@ const path = require('path');
 const api = require('./api.js');
 
 async function main() {
-  const client = await MongoClient.connect(dburl, { useNewUrlParser: true })
-  .catch(err => { console.log(err); });
-  if (!client) {
-      return;
-  }
+  const res = new Promise((resolve, reject) =>
+  {
+    setTimeout(() => {
+      resolve(MongoClient.connect(dburl, { useNewUrlParser: true }));
+    }, 2000);
+  });
+
+  return res;
 }
 main().catch(err => console.log(err));
 
@@ -32,7 +35,9 @@ app.use(session({
     saveUninitialized: true
 }));
 
+/*
 app.use('/api', api.default());
+*/
 
 // Démarre le serveur
 app.on('close', () => {
