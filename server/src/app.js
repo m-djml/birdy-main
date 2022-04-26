@@ -1,6 +1,6 @@
 var MongoStore = require('connect-mongo');
 var MongoClient = require('mongodb').MongoClient;
-const dburl = "mongodb://localhost:4000/test";
+const dburl = "mongodb://127.0.0.1:27017/test";
 const client = new MongoClient(dburl);
 const path = require('path');
 const api = require('./api.js');
@@ -22,7 +22,7 @@ const session = require("express-session");
 app.use(session({
     secret: "technoweb rocks",
     name: "mon_couki",
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost:4000/test' }), // connect-mongo session store
+    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1:27017/test' }), // connect-mongo session store
     proxy: true,
     resave: true,
     saveUninitialized: true

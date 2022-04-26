@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha test",
-    "serve": "node src/index.js"
+    "serve": "node src/index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
