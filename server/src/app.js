@@ -1,19 +1,12 @@
 var MongoStore = require('connect-mongo');
 var MongoClient = require('mongodb').MongoClient;
-const dburl = "mongodb://localhost:27017/test";
+const dburl = "mongodb://localhost:4000/test";
 const client = new MongoClient(dburl);
 const path = require('path');
 const api = require('./api.js');
 
 async function main() {
-  const res = new Promise((resolve, reject) =>
-  {
-    setTimeout(() => {
-      resolve(MongoClient.connect(dburl, { useNewUrlParser: true }));
-    }, 2000);
-  });
-
-  return res;
+  await MongoClient.connect(dburl);
 }
 main().catch(err => console.log(err));
 
@@ -29,15 +22,13 @@ const session = require("express-session");
 app.use(session({
     secret: "technoweb rocks",
     name: "mon_couki",
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/test' }), // connect-mongo session store
+    store: MongoStore.create({ mongoUrl: 'mongodb://localhost:4000/test' }), // connect-mongo session store
     proxy: true,
     resave: true,
     saveUninitialized: true
 }));
 
-/*
 app.use('/api', api.default());
-*/
 
 // Démarre le serveur
 app.on('close', () => {
