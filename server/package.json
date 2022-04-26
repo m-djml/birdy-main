@@ -4,10 +4,9 @@
   "description": "Mon app birdy côté serveur",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon src/index.js",
     "test": "mocha test",
-    "serve": "node src/index.js",
-    "dev": "nodemon index.js"
+    "serve": "node src/index.js"
   },
   "author": "",
   "license": "ISC",
