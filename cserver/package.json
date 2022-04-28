@@ -4,7 +4,7 @@
   "description": "Mon app touitère côté serveur",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon src/index.js",
     "test": "mocha test",
     "serve": "node src/index.js"
   },
@@ -20,6 +20,7 @@
     "mocha": "^9.2.2",
     "mongoose": "^6.3.1",
     "path": "^0.12.7",
+    "nodemon": "^2.0.15",
     "validator": "^13.7.0"
   }
 }

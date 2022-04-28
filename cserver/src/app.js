@@ -16,7 +16,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.use('/api', api.default());
+//app.use('/api', api.default());
 
 // Démarre le serveur
 app.on('close', () => {

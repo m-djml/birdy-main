@@ -4,7 +4,9 @@ const validerInscription = require('../validation/register')
 
 router.route('/register')
   .get((req, res) => {
-    const {isValid, errors} = validerInscription(req.body)
+    console.log("MOI")
+    console.log(res)
+    const {errors, isValid} = validerInscription(req.body)
 
     if (!isValid){ return res.status(404).json(errors)}
 
