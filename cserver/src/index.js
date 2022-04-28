@@ -5,12 +5,12 @@ const bodyParser = require('body-parser');
 const users = require('./routes/users')
 const axios = require('axios').default;
 
-mongoose.connect("mongodb://localhost:4000/test", {
+mongoose.connect("mongodb://localhost/test", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-        .then(() => console.log("reussite"))
-        .catch((err) => console.log("echec"));
+      .then(() => console.log("reussite"))
+      .catch((err) => console.log(err));
 
 app.default.use(bodyParser.json());
 app.default.use(bodyParser.urlencoded({extended: false}));

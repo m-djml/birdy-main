@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
+var userSchema = new Schema({
   login: {
     type: String,
     required: true,
@@ -20,8 +20,9 @@ const userSchema = new Schema({
     type: String,
     required: true
   }
-}
-)
+})
+
+
 /*
 const userSchema = new Schema({
   login: {
@@ -46,6 +47,7 @@ const userSchema = new Schema({
 })
 */
 
+/*
 class Users {
   constructor(db) {
     this.db = db
@@ -80,7 +82,7 @@ class Users {
       }
     });
   }
-/*
+
   async exists(login) {
     return new Promise((resolve, reject) => {
       if(false) {
@@ -103,7 +105,7 @@ class Users {
       }
     });
   }
-*/
 }
+*/
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = User = mongoose.model('User', userSchema)
