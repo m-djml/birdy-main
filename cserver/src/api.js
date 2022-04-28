@@ -12,7 +12,7 @@ function init(db) {
         console.log('Body', req.body);
         next();
     });
-    const users = new Users.default(db);
+    const users = require('./entities/users');
     router.post("/user/login", async (req, res) => {
         try {
             const { login, password } = req.body;
@@ -100,4 +100,3 @@ function init(db) {
     return router;
 }
 exports.default = init;
-

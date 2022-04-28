@@ -12,10 +12,10 @@ mocha.describe("Test de l'API user", () => {
     mocha.it("user", (done) => {
         const request = chai.request(app.default).keepOpen();
         const user = {
-            login: "pikachu",
-            password: "1234",
-            lastname: "chu",
-            firstname: "pika"
+            login: "patate",
+            password: "123456789",
+            lastname: "stylo",
+            firstname: "rouge"
         };
 
         request
@@ -45,4 +45,3 @@ mocha.describe("Test de l'API user", () => {
             })
     })
 })
-
