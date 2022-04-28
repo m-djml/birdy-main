@@ -3,12 +3,12 @@ const User = require('../entities/users')
 const validerInscription = require('../validation/register')
 
 router.route('/register')
-  .get((req, res) => {
-    console.log("MOI")
-    console.log(res)
+  .post((req, res) => {
     const {errors, isValid} = validerInscription(req.body)
 
-    if (!isValid){ return res.status(404).json(errors)}
+    if (!isValid){
+      return res.status(404).json(errors)
+    }
 
     User.findOne({login: req.body})
         .then(user => {

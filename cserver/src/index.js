@@ -1,16 +1,16 @@
 const app = require("./app.js");
-const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const users = require('./routes/users')
 const axios = require('axios').default;
 
-dotenv.config();
-
-mongoose.connect("mongodb://localhost:4000/test", {useNewUrlParser: true})
+mongoose.connect("mongodb://localhost:4000/test", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
         .then(() => console.log("reussite"))
-        .catch((err) => console.log("raté"));
+        .catch((err) => console.log("echec"));
 
 app.default.use(bodyParser.json());
 app.default.use(bodyParser.urlencoded({extended: false}));
