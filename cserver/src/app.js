@@ -3,7 +3,8 @@ const api = require('./api.js');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const users = require('./api.js')
+//const users = require('./api.js')
+const users = require('./entities/users.js')
 
 // Détermine le répertoire de base
 const basedir = path.normalize(path.dirname(__dirname));
@@ -17,12 +18,12 @@ mongoose.connect("mongodb://localhost/test", {
       .catch((err) => console.log(err));
 
 const app = express()
-api_1 = require("./api.js");
+//api_1 = require("./api.js");
 const session = require("express-session");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use("/api.js", users);
+//app.use("/users", users);
 
 app.use(session({
     secret: "technoweb rocks",
@@ -30,9 +31,18 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// Base Route
 app.use('/api', api);
+
+// User Route
+app.post('api/users', function(req, res){
+  users.post;
+});
 
 // Démarre le serveur
 app.on('close', () => {
 });
+
+
+
 exports.default = app;

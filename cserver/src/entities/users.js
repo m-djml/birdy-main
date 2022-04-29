@@ -1,54 +1,6 @@
 
-const mongoose = require('mongoose')
 
-var userSchema = new mongoose.Schema({
-  login: {
-    index: true,
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  firstname: {
-    type: String,
-    required: true
-  },
-  lastname: {
-    type: String,
-    required: true
-  }
-})
-
-
-/*
-const userSchema = new Schema({
-  login: {
-    type: {type: String},
-    options: {
-      required: true,
-      unique: true
-    }
-  },
-  password: {
-    type: {type: String},
-    options: {required: true}
-  },
-  firstname: {
-    type: String,
-    options: {required: true}
-  },
-  lastname: {
-    type: String,
-    options: {required: true}
-  }
-})
-*/
-
-/*
-class Users {
+class users {
   constructor(db) {
     this.db = db
     // suite plus tard avec la BD
@@ -106,7 +58,5 @@ class Users {
     });
   }
 }
-*/
 
-var User = mongoose.model('User', userSchema)
-module.exports = User
+exports.default = users
