@@ -2,6 +2,7 @@ const express = require("express");
 const Users = require("./entities/users.js");
 
 const router = express.Router();
+//router.route('/test')
 function init(db) {
     // On utilise JSON
     router.use(express.json());
