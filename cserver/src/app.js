@@ -21,9 +21,11 @@ const app = express()
 //api_1 = require("./api.js");
 const session = require("express-session");
 
+/*
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 //app.use("/users", users);
+*/
 
 app.use(session({
     secret: "technoweb rocks",
@@ -32,12 +34,13 @@ app.use(session({
 }));
 
 // Base Route
-app.use('/api', api);
+app.use('/api', api.default(mongoose.connection.db))
 
 // User Route
-app.post('api/users', function(req, res){
-  users.post;
+app.post('/api/users', function(req, res){
+  api.init(mongoose.connection.db);
 });
+
 
 // Démarre le serveur
 app.on('close', () => {

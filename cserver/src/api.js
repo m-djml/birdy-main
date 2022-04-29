@@ -1,9 +1,8 @@
 const express = require("express");
 const Users = require("./entities/users.js");
 
-const router = express.Router();
-router.route('/test')
 function init(db) {
+    const router = express.Router();
     // On utilise JSON
     router.use(express.json());
     // simple logger for this router's requests
@@ -13,7 +12,7 @@ function init(db) {
         console.log('Body', req.body);
         next();
     });
-    const users = require('./entities/users');
+    const users = new Users.default(db);
     router.post("/user/login", async (req, res) => {
         try {
             const { login, password } = req.body;
@@ -101,4 +100,3 @@ function init(db) {
     return router;
 }
 exports.default = init;
-module.exports = router;

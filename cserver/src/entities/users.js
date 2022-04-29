@@ -1,9 +1,14 @@
-
+const mongoose = require('mongoose')
 
 class users {
   constructor(db) {
     this.db = db
-    // suite plus tard avec la BD
+  /*
+    this.login = db.login
+    this.password = db.password
+    this.firstname = db.firstname
+    this.lastname = db.lastname
+    */
   }
 
   create(login, password, lastname, firstname) {
@@ -59,4 +64,17 @@ class users {
   }
 }
 
-exports.default = users
+const UserSchema = new mongoose.Schema({
+  login: String,
+  password: String,
+  firstName: String,
+  lastName: String
+});
+
+UserSchema.loadClass(users)
+
+console.log(UserSchema.methods); // { myMethod: [Function: myMethod] }
+console.log(UserSchema.statics); // { myStatic: [Function: myStatic] }
+console.log(UserSchema.virtuals); // { myVirtual: VirtualType { ... } }
+
+module.exports = users = mongoose.model('User', UserSchema);
