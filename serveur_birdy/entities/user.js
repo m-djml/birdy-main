@@ -2,7 +2,7 @@ const UserModel = require("../models/user_model");
 
 module.exports.getAllUsers = async (req, res) => {
     try{
-        const users = await UserModel.find();
+        const users = await UserModel.find().select("-password");
         res.status(200).json(users);
     }catch(err){
         res.status(500).json({
@@ -13,29 +13,33 @@ module.exports.getAllUsers = async (req, res) => {
     }
 }
 
-module.exports.getUser = (req, res) => {
-    UserModel.findById(req.params.id, (err, docs) => {
-        if (err){
-            res.status(500).send(err.message);
-            console.log("Id inconnu : " + err.message);
-        }
-        else{
-            res.status(200).send(docs);
-        }
-    })
+module.exports.getUser = async (req, res) => {
+    const user = await UserModel.findById(req.params.id).select("-password");
+    if (!user){
+        res.status(500).send(err.message);
+        console.log("Id inconnu : " + err.message);
+    }
+    else{
+        res.status(200).send(user);
+    }
 }
 
 
 module.exports.updateUser = async (req, res) => {
     try {
-        const upd_user = await UserModel.findOneAndUpdate(
-            {_id: req.params.id}, {
-                
+        UserModel.findOneAndUpdate(
+            {_id: req.params.id}, 
+            {bio: req.body.bio,},
+            { new: true, upsert: true, setDefaultsOnInsert: true },
+            (err, docs) => {
+                if (err) return res.status(500).send({ message: err });
+                else return res.status(200).send(docs);
             }
+
             
         )
     }catch(err){
-
+        return res.status(500).json({ message: err.message });
     }
 
 }

@@ -1,12 +1,26 @@
 const mongoose = require('mongoose');
+const { isEmail } = require('validator');
 
 const userSchema = new mongoose.Schema(
     {
+        firstname: {
+          type: String,
+          required: true,
+          minLength: 3,
+          maxLength: 50
+        },
+        lastname: {
+          type: String,
+          required: true,
+          minLength: 3,
+          maxLength: 50
+        },
         username: {
           type: String,
           required: true,
           minLength: 3,
-          maxLength: 55,
+          maxLength: 50,
+          lowercase: true,
           unique: true,
           trim: true
         },
@@ -18,23 +32,15 @@ const userSchema = new mongoose.Schema(
           unique: true,
           trim: true,
         },
-        fistname: {
-          type: String,
-          required: true,
-          minLength: 3,
-          maxLength: 55
-        },
-        lastname: {
-          type: String,
-          required: true,
-          minLength: 3,
-          maxLength: 55
-        },
         password: {
           type: String,
           required: true,
-          max: 1024,
-          minlength: 6
+          minlength: 6,
+          maxlength: 1024
+        },
+        bio: {
+          type: String,
+          maxlength: 1024
         },
         followers: {
           type: [String]
@@ -48,6 +54,6 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-const UserModel = mongoose.model("user", userSchema);
+const UserModel = mongoose.model("User", userSchema);
 
 module.exports = UserModel;

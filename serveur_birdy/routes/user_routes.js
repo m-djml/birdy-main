@@ -1,18 +1,19 @@
 const UserModel = require("../models/user_model.js");
 const user = require("../entities/user");
 const message = require("../entities/message");
+const auth = require("../entities/authentification");
 
 const express = require('express');
 
 const router = express.Router();
 
-router.post("/register", );
-router.post("/login", );
-router.get("/logout", );
+router.post("/register", auth.createUser);
+router.post("/login", auth.signin);
+router.get("/logout", auth.logout);
 
-router.get("/", ); //obtenir tous les utilisateurs
-router.get("/:id", ); //obtenir un utilisateur particulier
-router.put("/:id", ); //modifier un utilisateur particulier
-router.delete("/:id", ); //supprimer un utilisateur particulier
+router.get("/", user.getAllUsers); //obtenir tous les utilisateurs
+router.get("/:id", user.getUser); //obtenir un utilisateur particulier
+router.put("/:id", user.updateUser); //modifier un utilisateur particulier
+router.delete("/:id", user.deleteUser); //supprimer un utilisateur particulier
 
-moduler.export = router;
+module.exports = router;
