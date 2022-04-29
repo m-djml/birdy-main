@@ -1,4 +1,3 @@
-const UserModel = require("../models/user_model.js");
 const user = require("../entities/user");
 const message = require("../entities/message");
 const auth = require("../entities/authentification");

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' // inutile ???,
 
 class Mainpage extends React.Component {
     constructor(props){
