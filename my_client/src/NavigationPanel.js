@@ -16,23 +16,17 @@ class NavigationPanel extends React.Component{
 
     render(){
         return(
-              <nav className="navigation">
-                <div className="nav">
-                  <div className="bienvenue">
-                    <h1 className="birdy">Bienvenue sur Birdy</h1>
-                    <img className="logo" src={logo} alt="logo"/>
-
-                  </div>
-                  
-                  
-                  {/* <Login/> */}
-                  <Signin/>
-                </div>
-                {/* <div className="inscription">
-                  <p className="txt">Vous n'avez pas encore de compte ?</p>
-                  <button className = "signin">Créer un compte</button>
-                </div> */}
-                
+              <nav className="navigationpanel">
+                <button className = "log">
+                  {
+                    this.isConnected ?
+                      <Link to="/logout">Se déconnecter</Link> :
+                      <Link to="/login">Se connecter</Link>
+                  }
+              </button>
+              <button className = "register">
+                <Link to="/register">Créer un compte</Link>
+              </button>
               </nav>
         );
     }

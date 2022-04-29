@@ -7,6 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import LogoutIcon from '@mui/icons-material/Logout';
+import NavigationPanel from "./NavigationPanel"
 
 
 class Sidebar extends React.Component{
@@ -19,7 +20,7 @@ class Sidebar extends React.Component{
             <SidebarOption SvgIcon={ContactsIcon} text="Abonnés" path="/"/>
             <SidebarOption SvgIcon={ContactsIcon} text="Abonnements" path="/"/>
             <SidebarOption SvgIcon={SearchIcon} text="Explorer" path="/"/>
-            <SidebarOption SvgIcon={LogoutIcon} text="Déconnexion" path="/"/>
+            <NavigationPanel SvgIcon={LogoutIcon}/>
 
         </div>
 
