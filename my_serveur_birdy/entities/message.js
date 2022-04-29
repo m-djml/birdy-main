@@ -101,17 +101,5 @@ module.exports.unlikeMessage = async (req, res) => {
         console.log("Like Message error : " + err.message);
     }
 
-    module.exports.getMessagesFromUser = async (req, res) => {
-      try{
-          const messages = await MessageModel.find().select("-author");
-          res.status(200).json(messages);
-      }catch(err){
-          res.status(500).json({
-              status: 500,
-              message: "Erreur interne",
-              details: (e || "Erreur inconnue").toString()
-          })
-      }
-    }
 
 }
