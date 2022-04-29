@@ -1,8 +1,8 @@
 const express = require("express");
 const Users = require("./entities/users.js");
 
+const router = express.Router();
 function init(db) {
-    const router = express.Router();
     // On utilise JSON
     router.use(express.json());
     // simple logger for this router's requests
@@ -100,3 +100,4 @@ function init(db) {
     return router;
 }
 exports.default = init;
+module.exports = router;

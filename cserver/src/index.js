@@ -2,7 +2,7 @@ const app = require("./app.js");
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const users = require('./routes/users')
+const users = require('./api.js')
 const axios = require('axios').default;
 
 mongoose.connect("mongodb://localhost/test", {
@@ -14,7 +14,7 @@ mongoose.connect("mongodb://localhost/test", {
 
 app.default.use(bodyParser.json());
 app.default.use(bodyParser.urlencoded({extended: false}));
-app.default.use("/api/users", users);
+app.default.use("/api.js", users);
 
 // start
 const PORT = 4000;
