@@ -2,7 +2,6 @@ import React from "react";
 import logo from './oizo.png';
 import './Signin.css';
 import { Link } from "react-router-dom"
-import axios from "axios"
 
 class Signin extends React.Component{
 
@@ -36,7 +35,7 @@ class Signin extends React.Component{
     }
 
     console.log(userData);
-    
+
   }
 
     render(){

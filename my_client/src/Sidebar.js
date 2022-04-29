@@ -6,8 +6,10 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactsIcon from '@mui/icons-material/Contacts';
-import LogoutIcon from '@mui/icons-material/Logout';
-import NavigationPanel from "./NavigationPanel"
+import AddIcon from '@mui/icons-material/Add';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+
+import { Link } from "react-router-dom";
 
 
 class Sidebar extends React.Component{
@@ -20,7 +22,19 @@ class Sidebar extends React.Component{
             <SidebarOption SvgIcon={ContactsIcon} text="Abonnés" path="/"/>
             <SidebarOption SvgIcon={ContactsIcon} text="Abonnements" path="/"/>
             <SidebarOption SvgIcon={SearchIcon} text="Explorer" path="/"/>
-            <NavigationPanel SvgIcon={LogoutIcon}/>
+            <SidebarOption SvgIcon={PowerSettingsNewIcon}
+                                text= {
+                                this.isConnected ?
+                                  "Se déconnecter ":
+                                  "Se connecter"
+                                } path= {
+                                  this.isConnected ?
+                                  "/logout":
+                                  "/login"
+                                } />
+            <SidebarOption SvgIcon={AddIcon} text="Créer un compte" path="/register"/>
+
+
 
         </div>
 
