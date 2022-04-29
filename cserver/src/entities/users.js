@@ -1,9 +1,9 @@
 
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
 
-var userSchema = new Schema({
+var userSchema = new mongoose.Schema({
   login: {
+    index: true,
     type: String,
     required: true,
     unique: true
@@ -108,4 +108,5 @@ class Users {
 }
 */
 
-module.exports = User = mongoose.model('User', userSchema)
+var User = mongoose.model('User', userSchema)
+module.exports = User
