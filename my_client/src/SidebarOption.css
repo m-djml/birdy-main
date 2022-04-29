@@ -1,0 +1,27 @@
+.navOption{
+    text-decoration: none;
+    text-decoration-color: none;
+    color:black;
+}
+.sidebarOption{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+.sidebarOption:hover {
+    background-color: aliceblue;
+    border-radius: 20px;
+    color:lightcoral;
+
+}
+
+.sidebarOption > .MuiSvgIcon-root {
+    padding: 20px;
+}
+
+.sidebarOption > h2{
+    font-weight: 500;
+    font-size: 20px;
+}

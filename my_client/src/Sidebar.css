@@ -1,0 +1,16 @@
+.sidebar {
+    border-right: 2px solid aliceblue;
+    flex: 0.2;
+    margin-top: 20px;
+    padding-right: 40px;
+
+    /* padding-left: auto;
+    padding-right: auto;  */
+}
+#logo{
+    /* max-width: auto;
+    max-height: auto; */
+    height: 40px;
+    padding-bottom: 20px;
+    margin-left: 15%;
+}
