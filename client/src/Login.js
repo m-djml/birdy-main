@@ -2,6 +2,7 @@ import React from "react";
 import './Login.css';
 import logo from './oizo.png';
 import { Link } from "react-router-dom"
+import axios from 'axios';
 
 
 class Login extends React.Component{
@@ -13,7 +14,7 @@ class Login extends React.Component{
       }
 
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleLogin = this.handleLogin.bind(this);
 
     }
 
@@ -21,13 +22,31 @@ class Login extends React.Component{
       this.setState({ [e.target.name] : e.target.value });
     }
   
-    handleSubmit(e) {
+    handleLogin(e) {
       e.preventDefault();
+      const errorLogin = document.querySelector(".errorlogin");
       const userData = {
         username : this.state.username,
         password : this.state.password
       }
-      console.log(userData);
+      axios({
+        method: "post",
+        url: "http://localhost:8080/api/user/login",
+        withCredentials: true,
+        data: userData,
+      })
+            .then((res) => {
+              console.log(res);
+              if(res.data.erreur){
+                errorLogin.innerHTML = res.data.erreur;
+              }
+              else{
+                window.location = "/";
+              }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     render(){
@@ -39,16 +58,18 @@ class Login extends React.Component{
             </div>
             
             <div className="form_login">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleLogin}>
                 <input id ='username' type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>
                 <input type="password" id="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
-                <button className="button">Connexion</button>
+                <div className="errorlogin"></div>
+                <input type="submit" className="button" value="Connexion"/>
                 </form>
+                
             </div>
             
             <div className="inscription">
                 <p className="txt">Vous n'avez pas encore de compte ?</p>
-                <Link to="/register" className = "signin">Créer un compte</Link>
+                <Link to="/register" className = "log_signup">Créer un compte</Link>
             </div>
         </div>
       );

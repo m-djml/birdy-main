@@ -84,10 +84,14 @@ input{
     text-align: center;
 } 
 
-.signin{
+.log_signup{
     color: white;
     font-weight: bold;
     margin-left: 30%;
 } 
+
+.errorlogin {
+    color: red;
+}
 
   

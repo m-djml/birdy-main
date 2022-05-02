@@ -1,15 +1,24 @@
 const MessageModel = require("../models/message_model");
 const UserModel = require("../models/user_model");
 
-module.exports.createMessage = async (req, res) => {
-    const newMsg = new MessageModel({
-        author: req.body.author,
-        message: req.body.message,
-        likers: []
-    })
-
+module.exports.getAllMessages = async (req, res) => {
     try{
-        const msg = await newMsg.save();
+        const users = await MessageModel.find();
+        res.status(200).json(users);
+    }catch(err){
+        res.status(500).json({
+            status: 500,
+            message: "Erreur interne",
+            details: (e || "Erreur inconnue").toString()
+        })
+    }
+}
+
+module.exports.createMessage = async (req, res) => {
+    const {author, message } = req.body;
+    
+    try{
+        const msg = await UserModel.create({ author, message });
         res.status(201).json(msg);
     }catch(err){
         res.status(400).send(err.message);
