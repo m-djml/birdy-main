@@ -57,6 +57,7 @@ class SignUp extends React.Component{
         }
         else{
           this.setState({submitted : true});
+          console.log(this.state.submitted);
         }
       })
       .catch((err) => {
@@ -74,7 +75,7 @@ class SignUp extends React.Component{
           </div>
 
           <div className="form_signup">
-            {this.props.submitted ?  (
+            {this.state.submitted ?  (
               <p className="txt">Compte crée avec succès !</p>
             ) : 
           <form onSubmit={this.handleSignup}>
