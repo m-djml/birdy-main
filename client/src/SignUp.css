@@ -87,6 +87,44 @@ input{
     color: white;
     font-weight: bold;
     margin-left: 35%;
-} 
+}
+
+.fstname_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
+
+.lstname_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
+
+.username_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
+
+.email_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
+
+.pswd_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
+
+
+
 
   

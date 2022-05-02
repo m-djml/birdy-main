@@ -25,6 +25,8 @@ class Login extends React.Component{
     handleLogin(e) {
       e.preventDefault();
       const errorLogin = document.querySelector(".errorlogin");
+      const errorusername = document.querySelector(".err_username");
+      
       const userData = {
         username : this.state.username,
         password : this.state.password
@@ -37,7 +39,11 @@ class Login extends React.Component{
       })
             .then((res) => {
               console.log(res);
-              if(res.data.erreur){
+              if(res.data.errors){
+                errorusername.innerHTML = res.data.errors.username;
+                errorLogin.innerHTML = res.data.errors.password;
+              }
+              else if(res.data.erreur){
                 errorLogin.innerHTML = res.data.erreur;
               }
               else{
@@ -60,6 +66,7 @@ class Login extends React.Component{
             <div className="form_login">
                 <form onSubmit={this.handleLogin}>
                 <input id ='username' type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>
+                <div className="err_username"></div>
                 <input type="password" id="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
                 <div className="errorlogin"></div>
                 <input type="submit" className="button" value="Connexion"/>

@@ -89,8 +89,16 @@ input{
     font-weight: bold;
     margin-left: 30%;
 } 
+.err_username{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
 
 .errorlogin {
+    font-size: smaller;
+    text-align: center;
     color: red;
 }
 

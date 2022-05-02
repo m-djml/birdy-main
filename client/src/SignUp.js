@@ -37,6 +37,9 @@ class SignUp extends React.Component{
     }
     const err_username = document.querySelector(".username_err");
     const err_email = document.querySelector(".email_err");
+    const err_fstname = document.querySelector(".fstname_err");
+    const err_lstname = document.querySelector(".lstname_err");
+    const err_pswd = document.querySelector(".pswd_err");
 
     axios ({
       method : "post",
@@ -48,6 +51,9 @@ class SignUp extends React.Component{
         if (res.data.errors) {
           err_username.innerHTML = res.data.errors.username;
           err_email.innerHTML = res.data.errors.email;
+          err_fstname.innerHTML = res.data.errors.firstname;
+          err_lstname.innerHTML = res.data.errors.lastname;
+          err_pswd.innerHTML = res.data.errors.password;
         }
         else{
           this.setState({submitted : true});
@@ -73,12 +79,15 @@ class SignUp extends React.Component{
             ) : 
           <form onSubmit={this.handleSignup}>
           <input type="text" id="prenom" name="firstname" placeholder="Prénom" value={this.state.firstname} onChange={this.handleChange}/>
+          <div className="fstname_err"></div>
           <input type="text" id="nom" name="lastname" placeholder="Nom" value={this.state.lastname} onChange={this.handleChange}/>
+          <div className="lstname_err"></div>
           <input type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>
           <div className="username_err"></div>
           <input type="mail" id="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange}/>
           <div className="email_err"></div>
           <input type="password" id="password" name="password" placeholder="Mot de passe" value={this.state.password} onChange={this.handleChange}/>
+          <div className="pswd_err"></div>
           {/* <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirmer le mot de passe" value={this.state.confirmpassword} onChange={this.handleChange}/> */}
           <input type="submit" className = "button" value="Créer un compte" />
           </form>
