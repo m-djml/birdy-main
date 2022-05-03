@@ -9,6 +9,7 @@ import { createContext } from 'react';
 import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user_actions";
 import axios from 'axios';
+import FollowPage from "./FollowPage";
 
 export const UserIdContext = createContext();
 
@@ -46,6 +47,8 @@ function App() {
         <Route path="/register" element={<SignUp/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/profil" element={<ProfilePage/>}/>
+        <Route path="/following" element={<FollowPage followers={false}/>}/>
+        <Route path="/followers" element={<FollowPage followers={true}/>}/>
       </Routes>
     </BrowserRouter>
   </UserIdContext.Provider>

@@ -20,9 +20,9 @@ class Sidebar extends React.Component{
             <img id="logo" src={logo} alt="logo"/>
             <SidebarOption SvgIcon={HomeRoundedIcon} text="Home" path="/homepage"/>
             <SidebarOption SvgIcon={AccountCircleIcon} text="Profil" path="/profil" />
-            <SidebarOption SvgIcon={ContactsIcon} text="Abonnés" path="/"/>
-            <SidebarOption SvgIcon={ContactsIcon} text="Abonnements" path="/"/>
-            <SidebarOption SvgIcon={SearchIcon} text="Explorer" path="/"/>
+            <SidebarOption SvgIcon={ContactsIcon} text="Abonnés" path="/followers"/>
+            <SidebarOption SvgIcon={ContactsIcon} text="Abonnements" path="/following"/>
+            {/* <SidebarOption SvgIcon={SearchIcon} text="Explorer" path="/"/> */}
             <Logout/>
         </div>
 

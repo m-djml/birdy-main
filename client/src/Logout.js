@@ -15,12 +15,13 @@ function Logout() {
             })
 
             if (window !== "undefined") {
-                console.log("je passe ici")
                 cookie.remove('accessToken', { expires: 1 });
             }
         }catch(err){
             console.log(err);
         }
+
+        window.location = "/login";
     }
 
   return (

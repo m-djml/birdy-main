@@ -1,30 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './UserProfil.css'
 import defaultUserPic from './defaultUserPic.png'
+import { useSelector, useDispatch } from 'react-redux';
+import { updateBio } from "./actions/user_actions";
 
 
-class UserProfil extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-          prenom : this.props.prenom,
-          nom : this.props.nom,
-          username : this.props.username,
-          email : this.props.email,
-          profilPic : this.props.profilPic,
-          description : this.props.description,
-          friends : this.props.friendList,
-          posts : this.props.posts
-        }
-    }
+function UserProfil (){
 
-    render(){
-        if(this.state.profilPic){
-            var profileImage = this.state.profilPic;
-        }
-        else{
-            var profileImage = defaultUserPic;
-        }
+    const userData = useSelector((state) => state.userReducer)
+    const [bio, setBio] = useState('');
+    const [updateFormBio, setUpdateFormBio] = useState(false);
+    const dispatch = useDispatch();
+
+    const handleUpdate = () => {
+        console.log("je passe ici");
+        dispatch(updateBio(userData._id, bio));
+        setUpdateFormBio(false);
+    };
+    // render(){
+    //     if(this.state.profilPic){
+    //         var profileImage = this.state.profilPic;
+    //     }
+    //     else{
+    //         var profileImage = defaultUserPic;
+    //     }
 
         return (
             <div className='userprofil'>
@@ -33,17 +32,32 @@ class UserProfil extends React.Component{
 
                     </figure>
                 </header>
-                <img id='profilimage' src={profileImage} alt='profilimage'/>
+                <img id='profilimage' src={defaultUserPic} alt='profilimage'/>
                 <div className='infos'>
-                    <p>Username : Coco2</p>
-                    <p>Prénom : Coco</p>
-                    <p>Nom : Rien</p>
-                    <p>Email : coco@gmail.com</p>
+                    <p>Username : {userData.username}</p>
+                    <p>Prénom : {userData.firstname}</p>
+                    <p>Nom : {userData.lastname}</p>
+                    <p>Email : {userData.email}</p>
                     <div className='description'>
-                        Bonjour bla bla bla bla bla bla bla 
-                        bla bla blabla 
-                        blablablabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-                        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                        <h3>Bio</h3>
+                        {updateFormBio === false && (
+                        <>
+                            <p onClick={() => setUpdateFormBio(!updateFormBio)}>{userData.bio}</p>
+                            <button onClick={() => setUpdateFormBio(!updateFormBio)}>
+                            Modifier bio
+                            </button>
+                        </>
+                        )}
+                        {updateFormBio && (
+                        <>
+                            <textarea
+                            type="text"
+                            defaultValue={userData.bio}
+                            onChange={(e) => setBio(e.target.value)}
+                            ></textarea>
+                            <button onClick={handleUpdate}>Valider modifications</button>
+                        </>
+                        )}
                     </div>
                 </div>
                 <div className='myposts'>
@@ -52,8 +66,8 @@ class UserProfil extends React.Component{
                 </div>
             </div>
           )
-    }
-
 }
+
+
 
 export default UserProfil
