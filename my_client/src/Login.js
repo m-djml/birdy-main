@@ -43,8 +43,8 @@ class Login extends React.Component{
                 errorusername.innerHTML = res.data.errors.username;
                 errorLogin.innerHTML = res.data.errors.password;
               }
-              else if(res.data.erreur){
-                errorLogin.innerHTML = res.data.erreur;
+              else if(res.data.errors){
+                errorLogin.innerHTML = res.data.errors;
               }
               else{
                 window.location = "/";
@@ -65,11 +65,11 @@ class Login extends React.Component{
 
             <div className="form_login">
                 <form onSubmit={this.handleLogin}>
-                <input id ='username' type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>
-                <div className="err_username"></div>
-                <input type="password" id="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
-                <div className="errorlogin"></div>
-                <input type="submit" className="button" value="Connexion"/>
+                  <input id ='username' type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>
+                  <div className="err_username"></div>
+                  <input type="password" id="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
+                  <div className="errorlogin"></div>
+                  <input type="submit" className="button" value="Connexion"/>
                 </form>
 
             </div>

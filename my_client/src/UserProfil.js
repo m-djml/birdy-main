@@ -33,22 +33,19 @@ class UserProfil extends React.Component{
 
                     </figure>
                 </header>
-                <img id='profilimage' src={profileImage} alt='profilimage'/>
+                <img id='profilimage' src={this.state.profilPic} alt='profilimage'/>
                 <div className='infos'>
-                    <p>Username : Coco2</p>
-                    <p>Prénom : Coco</p>
-                    <p>Nom : Rien</p>
-                    <p>Email : coco@gmail.com</p>
+                    <p>Username : {this.state.username}</p>
+                    <p>Prénom : {this.state.firstname}</p>
+                    <p>Nom : {this.state.lastname}</p>
+                    <p>Email : {this.state.email}</p>
                     <div className='description'>
-                        Bonjour bla bla bla bla bla bla bla 
-                        bla bla blabla 
-                        blablablabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-                        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                        {this.state.description}
                     </div>
                 </div>
                 <div className='myposts'>
                     <h1>MyPosts</h1>
-                    {/* Liste des messages */}
+                    {this.state.posts}
                 </div>
             </div>
           )

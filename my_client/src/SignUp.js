@@ -75,24 +75,25 @@ class SignUp extends React.Component{
           </div>
 
           <div className="form_signup">
-            {this.state.submitted ?  (
-              <p className="txt">Compte crée avec succès !</p>
-            ) :
-          <form onSubmit={this.handleSignup}>
-          <input type="text" id="prenom" name="firstname" placeholder="Prénom" value={this.state.firstname} onChange={this.handleChange}/>
-          <div className="fstname_err"></div>
-          <input type="text" id="nom" name="lastname" placeholder="Nom" value={this.state.lastname} onChange={this.handleChange}/>
-          <div className="lstname_err"></div>
-          <input type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>
-          <div className="username_err"></div>
-          <input type="mail" id="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange}/>
-          <div className="email_err"></div>
-          <input type="password" id="password" name="password" placeholder="Mot de passe" value={this.state.password} onChange={this.handleChange}/>
-          <div className="pswd_err"></div>
-          {/* <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirmer le mot de passe" value={this.state.confirmpassword} onChange={this.handleChange}/> */}
-          <input type="submit" className = "button" value="Créer un compte" />
-          </form>
-        }
+            {
+              this.state.submitted ?  (
+              <p className="txt">Compte créé avec succès !</p>
+              ) :
+              <form onSubmit={this.handleSignup}>
+                <input type="text" id="prenom" name="firstname" placeholder="Prénom" value={this.state.firstname} onChange={this.handleChange}/>
+                <div className="fstname_err"></div>
+                <input type="text" id="nom" name="lastname" placeholder="Nom" value={this.state.lastname} onChange={this.handleChange}/>
+                <div className="lstname_err"></div>
+                <input type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>
+                <div className="username_err"></div>
+                <input type="mail" id="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange}/>
+                <div className="email_err"></div>
+                <input type="password" id="password" name="password" placeholder="Mot de passe" value={this.state.password} onChange={this.handleChange}/>
+                <div className="pswd_err"></div>
+                <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirmer le mot de passe" value={this.state.confirmpassword} onChange={this.handleChange}/>
+                <input type="submit" className = "button" value="Créer un compte" />
+              </form>
+            }
           </div>
 
           <div className="connexion">

@@ -1,6 +1,7 @@
 import React from 'react'
 import './FormAddMsg.css';
 import Avatar from '@mui/material/Avatar';
+import axios from 'axios';
 
 class FormAddMsg extends React.Component {
     constructor(props){
@@ -16,10 +17,24 @@ class FormAddMsg extends React.Component {
     }
 
     sendMessage(e){
+        const errorMessage = document.querySelector(".err_message");
         var data_to_send = {
             msg : this.refs.msg
         };
         this.props.addMessage(data_to_send);
+
+        axios({
+          method: "post",
+          url: "http://localhost:8080/api/message/login",
+          withCredentials: true,
+          data: data_to_send,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
 
     render(){
