@@ -3,6 +3,7 @@ import HomePage from './HomePage';
 import Login from "./Login"
 import SignUp from "./SignUp"
 import ProfilePage from './ProfilePage';
+import PictureChanger from './PictureChanger';
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path="/register" element={<SignUp/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/profil" element={<ProfilePage/>}/>
+      <Route path="/picturechanger" element={<PictureChanger/>}/>
     </Routes>
   </BrowserRouter>
 

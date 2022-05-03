@@ -25,7 +25,7 @@ class FormAddMsg extends React.Component {
 
         axios({
           method: "post",
-          url: "http://localhost:8080/api/message/login",
+          url: "http://localhost:8080/api/message",
           withCredentials: true,
           data: data_to_send,
         })

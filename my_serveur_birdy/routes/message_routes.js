@@ -1,13 +1,24 @@
+const MessageModel = require("../models/message_model");
 const message = require("../entities/message");
-const user = require("../entities/user");
 
 const express = require('express');
 
-const message_router = express.Router();
+const router = express.Router();
 
-message_router.post("/homepage", message.createMessage); // poster un message
-message_router.put("/:id", message.unlikeMessage); // enlever un j'aime
-message_router.put("/:id", message.likeMessage); // mettre un j'aime
-message_router.delete("/:id", message.deleteMessage); // supprimer un message particulier
+router.get('/', message.getAllMessages);
+/*
+router.post('/message', async (req, res) => {
+ try {
+  const msg = await MessageModel.createMessage(Object.assign({ message: req.message }, req.body));
+  res.json(msg);
+ } catch (err) {
+  logger.error(err);
+  res.json({ error: err.message || err.toString() });
+ }
+});
+*/
+router.delete('/:id', message.deleteMessage);
+router.patch('/like/:id', message.likeMessage);
+router.patch('/unlike/:id', message.unlikeMessage);
 
-module.exports = message_router;
+module.exports = router;

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 import './UserProfil.css'
 import defaultUserPic from './defaultUserPic.png'
 
@@ -33,7 +34,9 @@ class UserProfil extends React.Component{
 
                     </figure>
                 </header>
-                <img id='profilimage' src={this.state.profilPic} alt='profilimage'/>
+                <Link to="/picturechanger" className = "picturechanger">
+                  <img id='profilimage' src={this.state.profilPic} alt='profilimage'/>
+                </Link>
                 <div className='infos'>
                     <p>Username : {this.state.username}</p>
                     <p>Prénom : {this.state.firstname}</p>
