@@ -1,7 +1,7 @@
 import './App.css';
 import HomePage from './HomePage';
 import Login from "./Login"
-import Signin from "./Signin"
+import SignUp from "./SignUp"
 import ProfilePage from './ProfilePage';
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
@@ -11,7 +11,7 @@ function App() {
     <Routes>
       <Route path="/homepage" element={<HomePage/>}/>
       <Route path="/" element={<Navigate replace to="/homepage"/>}/>
-      <Route path="/register" element={<Signin/>}/>
+      <Route path="/register" element={<SignUp/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/profil" element={<ProfilePage/>}/>
     </Routes>

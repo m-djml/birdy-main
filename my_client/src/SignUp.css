@@ -35,8 +35,8 @@
 
 }
 
-  
-.form_signin {
+
+.form_signup {
     position:relative;
     bottom:21px;
     display: block;
@@ -50,14 +50,14 @@
     border-end-start-radius: 8px;
     padding-bottom: 15px;
   }
-  
+
 input{
     padding: 8px;
     margin-bottom: 10px;
     border:1px solid pink;
     border-radius: 8px;
 }
-  
+
 .button{
     background-color: coral;
     color: white;
@@ -69,7 +69,7 @@ input{
     margin: auto;
     margin-top: 20px;
   }
-  
+
 .connexion{
     display: block;
     border: solid 1px pink;
@@ -81,12 +81,45 @@ input{
 .txt{
     font-size: smaller;
     text-align: center;
-} 
+}
 
 .connect{
     color: white;
     font-weight: bold;
     margin-left: 35%;
-} 
+}
 
-  
+.fstname_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
+
+.lstname_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
+
+.username_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
+
+.email_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
+
+.pswd_err{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}

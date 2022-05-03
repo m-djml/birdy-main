@@ -34,7 +34,7 @@
     padding-bottom: 30px;
 
 }
-  
+
 .form_login {
     position:relative;
     bottom:21px;
@@ -56,9 +56,9 @@ input{
     border:1px solid pink;
     border-radius: 8px;
 }
-  
 
-  
+
+
 .button{
     background-color: coral;
     color: white;
@@ -70,7 +70,7 @@ input{
     margin: auto;
     margin-top: 20px;
   }
-  
+
 .inscription{
     display: block;
     border: solid 1px pink;
@@ -82,12 +82,22 @@ input{
 .txt{
     font-size: smaller;
     text-align: center;
-} 
+}
 
-.signin{
+.log_signup{
     color: white;
     font-weight: bold;
     margin-left: 30%;
-} 
+}
+.err_username{
+    font-size: smaller;
+    text-align: center;
+    color:red;
+    padding-bottom: 10px;
+}
 
-  
+.errorlogin {
+    font-size: smaller;
+    text-align: center;
+    color: red;
+}
