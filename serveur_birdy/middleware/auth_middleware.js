@@ -10,7 +10,7 @@ module.exports.checkUser = (req, res, next) => {
           res.cookie('accessToken', '', { maxAge: 1 });
           next();
         } else {
-          let user = await UserModel.findById(decodedToken.id);
+          let user = await UserModel.findById(decodedToken._id);
           res.locals.user = user;
           next();
         }
@@ -22,14 +22,16 @@ module.exports.checkUser = (req, res, next) => {
 }
 
 module.exports.first_auth = (req, res, next) => {
-  const token = req.cookies.jwt;
+  const token = req.cookies.accessToken;
+  // console.log(token);
   if (token) {
-    jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
+    jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
       if (err) {
         console.log(err);
-        res.send(200).json('No token')
+        res.status(200).json('No token')
       } else {
-        console.log(decodedToken.id);
+        console.log(decodedToken._id);
+        //res.status(200).json(decodedToken._id);
         next();
       }
     });

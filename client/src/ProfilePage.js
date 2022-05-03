@@ -3,20 +3,26 @@ import Sidebar from './Sidebar';
 import './ProfilPage.css'
 import UserProfil from './UserProfil';
 import Stats from './Stats';
+import { UserIdContext } from './App';
+import { useContext } from 'react';
+import Login from './Login';
 
-class ProfilePage extends React.Component {
-  constructor(props){
-    super(props);
-  }
-  render(){
+function ProfilePage() {
+  const userId = useContext(UserIdContext);
+  
     return (
+      <>
+      {userId ? (
         <div  className='profilpage'>
           <Sidebar/>
           <UserProfil/>
           <Stats/>
         </div>
+      ) : (
+        <Login/>
+      )}
+      </>
     );
-  }
 
 }
 

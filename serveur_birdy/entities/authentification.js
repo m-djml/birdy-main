@@ -5,7 +5,34 @@ const bcrypt = require('bcrypt');
 const maxAge = 24 * 60 * 60 * 1000; //age max d'un cookie (ici égale à un jour)
 
 module.exports.createUser = async (req, res) => {
-    let errors = { pseudo: "", email: ""};
+    let errors = { firstname:"", lastname:"", username:"", email:"", password:""};
+
+    let {firstname, lastname, username, email, password } = req.body
+
+    if(!firstname || !lastname || !username || !email || !password){
+        if(!firstname){
+            errors.firstname = "Vous devez remplir ce champs.";
+        }
+    
+        if(!lastname){
+            errors.lastname = "Vous devez remplir ce champs.";
+        }
+    
+        if(!username){
+            errors.username = "Vous devez remplir ce champs.";
+        }
+    
+        if(!email){
+            errors.email = "Vous devez remplir ce champs.";
+        }
+    
+        if(!password){
+            errors.password = "Vous devez remplir ce champs.";
+        }
+
+        return res.json({errors});
+    }
+
     try{
         let user = await UserModel.findOne({ username : req.body.username });
         if(user){
@@ -20,7 +47,6 @@ module.exports.createUser = async (req, res) => {
             return res.json({errors});
         }
 
-        let {firstname, lastname, username, email, password } = req.body
         
         const salt = await bcrypt.genSalt();
         password = await bcrypt.hash(password, salt);
@@ -39,6 +65,23 @@ module.exports.createUser = async (req, res) => {
 
 module.exports.signin = async (req, res) => {
     let error=''
+    let errors = { username: "", email: ""};
+
+    let { username,  password } = req.body
+
+    if(!username || !password){
+    
+        if(!username){
+            errors.username = "Vous devez remplir ce champs.";
+        }
+    
+        if(!password){
+            errors.password = "Vous devez remplir ce champs.";
+        }
+
+        return res.json({errors});
+    }
+
     try{
         let user = await UserModel.findOne({ username : req.body.username });
         if(!user){
@@ -56,7 +99,7 @@ module.exports.signin = async (req, res) => {
         const token = jwt.sign({ _id: user._id}, process.env.SECRET_KEY, { expiresIn: maxAge});
         res.cookie('accessToken', token, { httpOnly: true, maxAge});
         //res.status(200).json({ user: user._id, token : token});
-        res.status(200).json({loggedIn: true, token: token, user_data : user });
+        res.status(200).json({user: user._id });
         
     }catch(err){
         res.status(500).send(err.message);
