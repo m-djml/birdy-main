@@ -6,6 +6,8 @@ import SignUp from "./SignUp"
 import ProfilePage from './ProfilePage';
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { createContext } from 'react';
+import { useDispatch } from "react-redux";
+import { getUser } from "./actions/user_actions";
 import axios from 'axios';
 
 export const UserIdContext = createContext();
@@ -13,7 +15,8 @@ export const UserIdContext = createContext();
 function App() {
 
   const [userId, setUserId] = useState(null);
-  
+  //dispatch declenche une action
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +32,8 @@ function App() {
         .catch((err) => console.log("No token"));
       }
       fetchData();
+
+      if (userId) dispatch(getUser(userId));
 
   }, [userId]);
 
