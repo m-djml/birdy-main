@@ -1,0 +1,33 @@
+.formaddmsg {
+    border: 3px solid lightcoral;
+    border-radius: 8px;
+}
+
+.form_avatar{
+    margin-left : 20px;
+    margin-top: 20px;
+}
+.formaddmsg > form{
+    display: flex;
+    flex-direction: column;
+}
+
+.messageinput{
+    padding: 40px;
+    display: flex;
+    font-size: 20px;
+    border: none;
+}
+
+
+.poster{
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    width: 72px;
+    height: 20px;
+    margin-left: auto;
+    /* margin-top: 5px; */
+}
+

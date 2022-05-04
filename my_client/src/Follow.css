@@ -1,0 +1,8 @@
+.follow{
+    flex: 0.6;
+    border-right: 2px solid aliceblue;
+    min-width: fit-content;
+    border: 1px solid aliceblue;
+    overflow-y: scroll ;
+
+}
