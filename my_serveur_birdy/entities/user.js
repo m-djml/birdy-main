@@ -28,7 +28,7 @@ module.exports.getUser = async (req, res) => {
 module.exports.updateUser = async (req, res) => {
     try {
         UserModel.findOneAndUpdate(
-            {_id: req.params.id}, 
+            {_id: req.params.id},
             {bio: req.body.bio,},
             { new: true, upsert: true, setDefaultsOnInsert: true },
             (err, docs) => {
@@ -36,7 +36,7 @@ module.exports.updateUser = async (req, res) => {
                 else return res.status(200).send(docs);
             }
 
-            
+
         )
     }catch(err){
         return res.status(500).json({ message: err.message });
@@ -53,4 +53,3 @@ module.exports.deleteUser = async (req, res) => {
     }
 
 }
-
