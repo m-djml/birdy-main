@@ -14,7 +14,7 @@ function FollowPage(props) {
     return (
       <>
       {userId ? (
-        <div className='followingpage'>
+        <div className='followpage'>
           <Sidebar/>
           {props.followers ? 
           <Followers/> :

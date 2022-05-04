@@ -3,6 +3,7 @@ import axios from 'axios';
 export const GET_USER = "GET_USER";
 export const UPDATE_BIO = "UPDATE_BIO";
 
+
 export const getUser = (userId) => {
     //dispatch = ce qu'on va envoyer au reducer pour envoyer ça au store
     return (dispatch) => {
@@ -26,4 +27,4 @@ export const updateBio = (userId, bio) => {
         })
         .catch((err) => console.log(err));
     };
-  };
+};
