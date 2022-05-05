@@ -11,9 +11,8 @@ function MessagesList (){
 
 
     return (<div className="messageslist">
-        {/* <p>Post : {messages ? console.log(messages.length) : ""}</p> */}
         {messages.map((msg) => {
-            return <Message id={msg._id} author={msg.author} contenu={msg.message} />//date = {msg.createdAt}/>;
+            return <Message id={msg._id} author={msg.author} contenu={msg.message} likes={msg.likers.length} date = {msg.createdAt}/>;
         })}
         </div>      
     );

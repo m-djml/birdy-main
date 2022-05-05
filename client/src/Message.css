@@ -1,6 +1,6 @@
 .message{
     display: flex;
-    align-items:flex-start;
+    /* align-items:flex-start; */
     border-bottom: 2px solid aliceblue;
     padding-bottom: 10px;
 }
@@ -15,11 +15,16 @@
     padding: 10px;
 }
 
+.message_body > h5 {
+    margin-top:5px;
+    margin-left:8px;
+}
+
 .message_avatar{
     padding: 20px;
 }
 
 .message_footer{
-    display: flex;
-    justify-content: space-between;
+    margin-top: 110px;
+    padding-bottom: 0px;
 }

@@ -21,10 +21,12 @@ class Message extends React.Component {
                 <div className='message_content'>
                     <p>{this.props.contenu}</p>
                 </div>
+                <FavoriteBorderIcon/>
+                <h5>{this.props.likes}</h5>
             </div>
             <div className='message_footer' >
-                <FavoriteBorderIcon/>
-                {/* <p>Date</p> */}
+                <p>{this.props.date.split("T")[0]}</p>
+                <p>à {this.props.date.split("T")[1].split(".")[0]}</p>
             </div>
         </li>
         //     <div className='msgheader'>{this.props.profil}</div>
