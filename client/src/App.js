@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user_actions";
 import axios from 'axios';
 import FollowPage from "./FollowPage";
+import { getAllMessages } from './actions/allmsg_actions';
+
 
 export const UserIdContext = createContext();
 
@@ -34,9 +36,12 @@ function App() {
       }
       fetchData();
 
-      if (userId) dispatch(getUser(userId));
+      if (userId){
+        dispatch(getUser(userId));
+        dispatch(getAllMessages());
+      }
 
-  }, [userId]);
+  }, [userId,dispatch]);
 
   return (
     <UserIdContext.Provider value={userId}>

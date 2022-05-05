@@ -10,23 +10,23 @@ class Message extends React.Component {
 
     render() {
         return (
-        <div className='message'>
+        <li className='message'>
             <div className= 'message_avatar'>
             <Avatar alt="pic" src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" />
             </div>
             <div className='message_body'>
                 <div className='message_header'>
-                    <h3>@username</h3>
+                    <h3>@{this.props.author}</h3>
                 </div>
                 <div className='message_content'>
-                    <p>This is the message</p>
+                    <p>{this.props.contenu}</p>
                 </div>
             </div>
             <div className='message_footer' >
                 <FavoriteBorderIcon/>
                 {/* <p>Date</p> */}
             </div>
-        </div>
+        </li>
         //     <div className='msgheader'>{this.props.profil}</div>
         //     <div className='msgbody'>
         //         <blockquote className='blockquote'>{this.props.contenu}</blockquote>

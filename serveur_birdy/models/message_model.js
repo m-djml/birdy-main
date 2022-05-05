@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const messageSchema = mongoose.Schema(
     {
+        author_id:{
+            type: String,
+            required: true    
+        },
         author: {
             type: String,
             required: true
@@ -16,6 +20,9 @@ const messageSchema = mongoose.Schema(
             type: [String],
             required: true
         }
+    },
+    {
+        timestamps : true
     }
 );
 

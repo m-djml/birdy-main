@@ -3,8 +3,8 @@ const UserModel = require("../models/user_model");
 
 module.exports.getAllMessages = async (req, res) => {
     try{
-        const users = await MessageModel.find();
-        res.status(200).json(users);
+        const msg = await MessageModel.find();
+        res.status(200).json(msg);
     }catch(err){
         res.status(500).json({
             status: 500,
@@ -14,11 +14,28 @@ module.exports.getAllMessages = async (req, res) => {
     }
 }
 
+module.exports.getMessagesOneUser = async (req, res) => {
+    const msg = await MessageModel.find();
+    if (!msg){
+        res.status(500).send(err.message);
+        console.log("Id inconnu : " + err.message);
+    }
+    else{
+        user_msg = [];
+        for(let i=0; i<msg.length; i++){
+            if(msg[i].author_id === req.params.id){
+                user_msg.push(msg[i]);
+            }
+        }
+        res.status(200).json(user_msg);
+    }
+}
+
 module.exports.createMessage = async (req, res) => {
-    const {author, message } = req.body;
+    const {author_id, author, message } = req.body;
     
     try{
-        const msg = await UserModel.create({ author, message });
+        const msg = await MessageModel.create({ author_id, author, message });
         res.status(201).json(msg);
     }catch(err){
         res.status(400).send(err.message);
@@ -29,7 +46,7 @@ module.exports.deleteMessage = (req, res) => {
     MessageModel.findByIdAndDelete(req.params.id, (err, docs) => {
         if(err){
             res.status(500).send(err.message);
-            console.log("Delete error : " + err.message);
+            console.log("Erreur lorsque vous essayez de supprimer le message : " + err.message);
         }
         else{
             res.status(200).send(docs);
@@ -42,36 +59,24 @@ module.exports.likeMessage = async (req, res) => {
         await MessageModel.findByIdAndUpdate(
             req.params.id, 
             { $addToSet: {likers : req.body.id} },
-            { new : true },
-            (err, docs) => {
-                if(err){
-                    res.status(500).send(err.message);
-                    console.log("Like Message error : " + err.message);
-                }
-                else{
-                    res.status(200).send(docs);
-                }
-            }
-        );
+            { new : true });
 
+    }catch(err){
+        return res.status(500).json({ message: err });
+    }
+
+    try{
         await UserModel.findByIdAndUpdate( 
             req.body.id,
             { $addToSet: { likes: req.params.id } },
-            { new : true },
-            (err, docs) => {
-                if(err){
-                    res.status(500).send(err.message);
-                    console.log("Like Message error : " + err.message);
-                }
-                else{
-                    res.status(200).send(docs);
-                }
-            }
-        );
+            { new : true });
+
     }catch(err){
         res.status(500).send(err.message);
-        console.log("Like Message error : " + err.message);
     }
+
+    res.status(200).json({message: "ajout like reussi"});
+
 }
 
 module.exports.unlikeMessage = async (req, res) => {
@@ -79,34 +84,22 @@ module.exports.unlikeMessage = async (req, res) => {
         await MessageModel.findByIdAndUpdate(
             req.params.id, 
             { $pull: {likers : req.body.id} },
-            { new : true },
-            (err, docs) => {
-                if(err){
-                    res.status(500).send(err.message);
-                    console.log("Like Message error : " + err.message);
-                }
-                else{
-                    res.status(200).send(docs);
-                }
-            }
-        );
+            { new : true });
 
+    }catch(err){
+        res.status(500).send(err.message);
+    }
+
+    try{
         await UserModel.findByIdAndUpdate( 
             req.body.id,
             { $pull: { likes: req.params.id } },
-            { new : true },
-            (err, docs) => {
-                if(err){
-                    res.status(500).send(err.message);
-                    console.log("Like Message error : " + err.message);
-                }
-                else{
-                    res.status(200).send(docs);
-                }
-            }
-        );
+            { new : true });
+
     }catch(err){
         res.status(500).send(err.message);
-        console.log("Like Message error : " + err.message);
     }
+
+    res.status(200).json({message: "supprime like reussi"});
+
 }

@@ -6,7 +6,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', message.getAllMessages);
-//router.post('/',);
+router.get('/:id', message.getMessagesOneUser);
+router.post('/', message.createMessage);
 router.delete('/:id', message.deleteMessage);
 router.patch('/like/:id', message.likeMessage);
 router.patch('/unlike/:id', message.unlikeMessage);
