@@ -3,10 +3,11 @@ import './UserProfil.css'
 import defaultUserPic from './defaultUserPic.png'
 import { useSelector, useDispatch } from 'react-redux';
 import { updateBio } from "./actions/user_actions";
-
+import Message from './Message';
 
 function UserProfil (){
 
+    const messages = useSelector((state) => state.allMsgReducer);
     const userData = useSelector((state) => state.userReducer)
     const [bio, setBio] = useState('');
     const [updateFormBio, setUpdateFormBio] = useState(false);
@@ -63,6 +64,13 @@ function UserProfil (){
                 <div className='myposts'>
                     <h1>MyPosts</h1>
                     {/* Liste des messages */}
+
+                    <div className="messageslist">
+                        {messages.map((msg) => {
+                            if(msg.author_id === userData._id)
+                                return <Message id={msg._id} author={msg.author} contenu={msg.message} likes={msg.likers.length} date = {msg.createdAt}/>;
+                        })}
+                    </div>      
                 </div>
             </div>
           )

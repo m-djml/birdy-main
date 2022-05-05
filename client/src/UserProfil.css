@@ -24,3 +24,13 @@
 .infos{
     border: 1px solid aliceblue;
 }
+
+.description > button{
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    width: 100px;
+    height: 20px;
+    margin-left: auto;
+}
