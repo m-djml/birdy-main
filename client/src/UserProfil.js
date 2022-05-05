@@ -64,6 +64,7 @@ function UserProfil (){
                 <div className='myposts'>
                     <h1>MyPosts</h1>
                     {/* Liste des messages */}
+                    {/* <p>msg : {messages ? console.log(messages) : ""}</p> */}
 
                     <div className="messageslist">
                         {messages.map((msg) => {

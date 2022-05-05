@@ -9,13 +9,12 @@ import Login from './Login';
 
 function HomePage(){
     const userId = useContext(UserIdContext);
-
     return (
         <>
         {userId ? (
             <div className="homepage">
                 <Sidebar/>
-                <Feed userId = {userId}/>
+                <Feed/>
                 <Stats/>
 
                 

@@ -12,7 +12,7 @@ function MessagesList (){
 
     return (<div className="messageslist">
         {messages.map((msg) => {
-            return <Message id={msg._id} author={msg.author} contenu={msg.message} likes={msg.likers.length} date = {msg.createdAt}/>;
+            return <Message author_id = {msg.author_id} id={msg._id} author={msg.author} contenu={msg.message} likers ={msg.likers} likes={msg.likers.length} date = {msg.createdAt}/>;
         })}
         </div>      
     );

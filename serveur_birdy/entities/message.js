@@ -55,11 +55,12 @@ module.exports.deleteMessage = (req, res) => {
 }
 
 module.exports.likeMessage = async (req, res) => {
+    let msg = ""
     try{
-        await MessageModel.findByIdAndUpdate(
+        msg = await MessageModel.findByIdAndUpdate(
             req.params.id, 
             { $addToSet: {likers : req.body.id} },
-            { new : true });
+            { new : true, upsert:true });
 
     }catch(err){
         return res.status(500).json({ message: err });
@@ -69,22 +70,23 @@ module.exports.likeMessage = async (req, res) => {
         await UserModel.findByIdAndUpdate( 
             req.body.id,
             { $addToSet: { likes: req.params.id } },
-            { new : true });
+            { new : true, upsert:true });
 
     }catch(err){
         res.status(500).send(err.message);
     }
 
-    res.status(200).json({message: "ajout like reussi"});
+    res.status(200).json({message: msg});
 
 }
 
 module.exports.unlikeMessage = async (req, res) => {
+    let msg = ""
     try{
-        await MessageModel.findByIdAndUpdate(
+        msg = await MessageModel.findByIdAndUpdate(
             req.params.id, 
             { $pull: {likers : req.body.id} },
-            { new : true });
+            { new : true, upsert:true});
 
     }catch(err){
         res.status(500).send(err.message);
@@ -94,12 +96,12 @@ module.exports.unlikeMessage = async (req, res) => {
         await UserModel.findByIdAndUpdate( 
             req.body.id,
             { $pull: { likes: req.params.id } },
-            { new : true });
+            { new : true, upsert:true });
 
     }catch(err){
         res.status(500).send(err.message);
     }
 
-    res.status(200).json({message: "supprime like reussi"});
+    res.status(200).json({message: msg});
 
 }

@@ -50,6 +50,7 @@ export const likeMsg = (msg_id, userId) => {
       })
         .then((res) => {
           dispatch({ type: LIKE_MSG, payload: { msg_id, userId } });
+          return res;
         })
         .catch((err) => console.log(err));
     };
@@ -64,6 +65,7 @@ export const unlikeMsg = (msg_id, userId) => {
       })
         .then((res) => {
           dispatch({ type: UNLIKE_MSG, payload: { msg_id, userId } });
+          return res;
         })
         .catch((err) => console.log(err));
     };
