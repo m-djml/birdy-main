@@ -11,6 +11,7 @@ import { getUser } from "./actions/user_actions";
 import axios from 'axios';
 import FollowPage from "./FollowPage";
 import { getAllMessages } from './actions/allmsg_actions';
+import { getAllUsers } from "./actions/allusers_actions";
 
 
 export const UserIdContext = createContext();
@@ -39,6 +40,7 @@ function App() {
       if (userId){
         dispatch(getUser(userId));
         dispatch(getAllMessages());
+        dispatch(getAllUsers());
       }
 
   }, [userId,dispatch]);

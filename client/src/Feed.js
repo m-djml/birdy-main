@@ -7,7 +7,6 @@ import Message from './Message';
 class Feed extends React.Component {
     constructor(props){
         super(props);
-        this.state = { listmsg : []};
         this.addMessage = this.addMessage.bind(this);
     }
 
@@ -19,13 +18,6 @@ class Feed extends React.Component {
             );
     }
     render(){
-        const list_msg = [
-            <Message/>,
-            <Message/>,
-            <Message/>,
-            <Message/>,
-            <Message/>
-        ]
         return (
             
             <div className='feed'>
@@ -33,11 +25,11 @@ class Feed extends React.Component {
                     <h2 className="titlefeed">Home</h2>
                 </div>
                 <div className='form_message'>
-                    <FormAddMsg addMessage={this.addMessage}/>
+                    <FormAddMsg userId ={this.props.userId} addMessage={this.addMessage}/>
                 </div>
                 {/* Posts*/}
                 <div className='messages_feed'>
-                    <MessagesList listmsg={list_msg}/>
+                    <MessagesList />
                 {/* <MessagesList listmsg={this.state.listmsg}/> */}
                 </div>
             </div>

@@ -9,6 +9,8 @@ import rootReducer from './reducers';
 import { getAllUsers } from "./actions/allusers_actions";
 //dev tools
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { getAllMessages } from './actions/allmsg_actions';
+import { getOneUserMessages } from './actions/message_actions';
 
 
 const store = createStore(
@@ -17,6 +19,8 @@ const store = createStore(
 );
 
 store.dispatch(getAllUsers());
+store.dispatch(getAllMessages());
+store.dispatch(getOneUserMessages());
 
 ReactDOM.render(
     <Provider store={store}>

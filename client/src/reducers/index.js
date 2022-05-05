@@ -5,6 +5,8 @@ import messageReducer from './message_reducer';
 import allMsgReducer from './allMsg_reducer'
 
 
-export default combineReducers({
+const rootReducer = combineReducers({
     userReducer, allUsersReducer, messageReducer, allMsgReducer,
-})
+});
+
+export default rootReducer;

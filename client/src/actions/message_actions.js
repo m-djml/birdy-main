@@ -1,11 +1,22 @@
 import axios from "axios";
 
+export const GET_ALL_MSG = "GET_ALL_MSG";
 export const GET_ONE_USER_MSG = "GET_ONE_USER_MSG"
 export const CREATE_MSG = "CREATE_MSG";
 export const LIKE_MSG = "LIKE_MSG";
 export const UNLIKE_MSG = "UNLIKE_MSG";
 export const DELETE_MSG = "DELETE_MSG";
 
+export const getAllMessages = () => {
+  return (dispatch) => {
+      return axios
+        .get("http://localhost:8080/api/message/")
+        .then((res) => {
+          dispatch({ type: GET_ALL_MSG, payload: res.data });
+        })
+        .catch((err) => console.log(err));
+    };
+};
 
 export const getOneUserMessages = (userId) => {
     return (dispatch) => {
@@ -22,6 +33,11 @@ export const createMessage = (data) => {
     return (dispatch) => {
       return axios
         .post("http://localhost:8080/api/message/", data)
+        .then((res) => {
+          dispatch({ type: CREATE_MSG, payload: res.data });
+        }).catch((err) => {
+          console.log(err)
+        })
     }
 };
 

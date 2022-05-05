@@ -2,7 +2,8 @@ import {
     GET_ONE_USER_MSG,
     LIKE_MSG,
     UNLIKE_MSG,
-    DELETE_MSG
+    DELETE_MSG,
+    CREATE_MSG
 } from "../actions/message_actions";
 
 const initialState = {};
@@ -51,6 +52,8 @@ export default function messageReducer(state = initialState, action) {
                     }
                     return msg;
                 });
+        case CREATE_MSG:
+            return state.push(action.payload)
         case DELETE_MSG:
             return state.filter((msg) => msg._id !== action.payload.msg_id);
 

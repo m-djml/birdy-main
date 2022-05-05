@@ -15,7 +15,7 @@ function HomePage(){
         {userId ? (
             <div className="homepage">
                 <Sidebar/>
-                <Feed/>
+                <Feed userId = {userId}/>
                 <Stats/>
 
                 
