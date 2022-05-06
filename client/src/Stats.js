@@ -1,6 +1,7 @@
 import SearchIcon from '@mui/icons-material/Search';
 import React from 'react'
 import './Stats.css';
+import Suggestions from './Suggestions';
 
 class Stats extends React.Component {
     render(){
@@ -11,7 +12,8 @@ class Stats extends React.Component {
                     <input type='text' name="search" placeholder='Rechercher...'/>
                 </div>
                 <div className='stat_contenu'>
-                    <h3>What's happening</h3>
+                    <h3>Suggestions</h3>
+                    <Suggestions/>
                 </div>
             </div>
         );

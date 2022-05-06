@@ -22,26 +22,6 @@ export default function messageReducer(state = initialState, action) {
                 }
                 return msg;
             });
-        case LIKE_MSG :
-            return state.map((msg) => {
-                if (msg._id === action.payload.msg_id) {
-                  return {
-                    ...msg,
-                    likers: [action.payload.userId, ...msg.likers],
-                  };
-                }
-                return msg;
-            });
-        case LIKE_MSG :
-                return state.map((msg) => {
-                    if (msg._id === action.payload.msg_id) {
-                    return {
-                        ...msg,
-                        likers: [action.payload.userId, ...msg.likers],
-                    };
-                    }
-                    return msg;
-                });
         case UNLIKE_MSG :
                 return state.map((msg) => {
                     if (msg._id === action.payload.msg_id) {

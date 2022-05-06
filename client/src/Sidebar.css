@@ -3,6 +3,7 @@
     flex: 0.2;
     margin-top: 20px;
     padding-right: 40px;
+    min-width: min-content;
 
     /* padding-left: auto;
     padding-right: auto;  */

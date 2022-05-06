@@ -54,12 +54,13 @@ module.exports.deleteUser = async (req, res) => {
 }
 
 module.exports.follow = async (req, res) => {
+    let user=""
     try {
       // add to the follower list
-    await UserModel.findByIdAndUpdate(
-        req.params.id,
-        { $addToSet: { following: req.body.idToFollow } },
-        { new: true, upsert: true });
+        user = await UserModel.findByIdAndUpdate(
+            req.params.id,
+            { $addToSet: { following: req.body.idToFollow } },
+            { new: true, upsert: true });
 
         //console.log(user);
         
@@ -81,7 +82,7 @@ module.exports.follow = async (req, res) => {
       return res.status(500).json({ message: err });
     }
 
-    res.status(200).json({message: "ajout follow reussi"});
+    res.status(200).json({user});
 };
 
 
@@ -126,8 +127,9 @@ module.exports.follow = async (req, res) => {
 // };
   
 module.exports.unfollow = async (req, res) => {
+    let user=""
     try {
-      await UserModel.findByIdAndUpdate(
+      user = await UserModel.findByIdAndUpdate(
         req.params.id,
         { $pull: { "following": req.body.idToUnfollow } },
         { new: true });
@@ -146,5 +148,5 @@ module.exports.unfollow = async (req, res) => {
     } catch (err) {
       return res.status(500).json({ message: err });
     }
-    res.status(200).json({message: "supprime follow reussi"});
+    res.status(200).json({user});
 }

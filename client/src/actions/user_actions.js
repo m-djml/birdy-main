@@ -2,6 +2,9 @@ import axios from 'axios';
 
 export const GET_USER = "GET_USER";
 export const UPDATE_BIO = "UPDATE_BIO";
+export const FOLLOW = "FOLLOW";
+export const UNFOLLOW = "UNFOLLOW";
+
 
 
 export const getUser = (userId) => {
@@ -27,4 +30,36 @@ export const updateBio = (userId, bio) => {
         })
         .catch((err) => console.log(err));
     };
+};
+
+export const follow = (userId, idToFollow) => {
+    return (dispatch) => {
+      return axios({
+        method:"patch",
+        url:`http://localhost:8080/api/user/follow/${userId}`,
+        data : {idToFollow : idToFollow},
+      })
+      .then((res) => {
+        console.log(res);
+        dispatch({type : FOLLOW, payload : {idToFollow}});
+        return res;
+      })
+      .catch((err) => console.log(err));
+    }
+};
+
+export const unfollow = (userId, idToUnfollow) => {
+  return (dispatch) => {
+    return axios({
+      method:"patch",
+      url:`http://localhost:8080/api/user/unfollow/${userId}`,
+      data : {idToUnfollow : idToUnfollow},
+    })
+    .then((res) => {
+      console.log(res);
+      dispatch({type : UNFOLLOW, payload : {idToUnfollow}});
+      return res;
+    })
+    .catch((err) => console.log(err));
+  }
 };

@@ -1,33 +1,32 @@
 import React from 'react';
 import "./Follow.css";
 import { useSelector } from 'react-redux';
-import defaultUserPic from './defaultUserPic.png'
+import Avatar from '@mui/material/Avatar';
 
 
 function Followers() {
   const userData = useSelector((state) => state.userReducer);
   const allUsersData = useSelector((state) => state.allUsersReducer);
-
+  
   return (
     <div className='follow'>
       <h1>Abonnés : {userData.followers ? userData.followers.length : ""}</h1>
-      {console.log(userData)}
-      <div className='following'>
         {allUsersData.map((user) => {
-          for(let i = 0; i< userData.followers.length; i++){
-            if(user._id === userData.followers[i]){
-              return (
-                <li key={user._id}>
-                  <img id='profilimage' src={defaultUserPic} alt='profilimage'/>
-                  <h3>{user.username}</h3>
-                  <h4>{user.firstname} {user.lastname}</h4>
-                  <h5>{user.bio}</h5>
-                </li>
-              )
+          if(userData.followers){
+            for(let i = 0; i< userData.followers.length; i++){
+              if(user._id === userData.followers[i]){
+                return (
+                  <li className="person"key={user._id}>
+                    <div className= 'sugg_avatar'>
+                      <Avatar alt="pic" src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" />
+                    </div>
+                    <h4>@{user.username}</h4>
+                  </li>
+                )
+              }
             }
           }
         })}
-      </div>
     </div>
   )
 }

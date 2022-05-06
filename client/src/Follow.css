@@ -1,32 +1,24 @@
 .follow{
     flex: 0.6;
     border-right: 2px solid aliceblue;
-    min-width: fit-content;
+    min-width:70%;
     border: 1px solid aliceblue;
     overflow-y: scroll ;
 
 }
 
-.header{
-    font-size: 12px;
+.follow > h1{
+    color: lightcoral;
+}
+
+.person {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    border-bottom: 2px solid aliceblue;
+    padding-bottom: 10px;
+}
+
+.person > h4 {
     color: lightcoral
-}
-
-.body{
-    flex: 1;
-    padding: 10px;
-}
-
-.body > h5 {
-    margin-top:5px;
-    margin-left:8px;
-}
-
-.profilimage{
-    padding: 20px;
-}
-
-.footer{
-    margin-top: 110px;
-    padding-bottom: 0px;
 }
