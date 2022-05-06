@@ -71,7 +71,7 @@ function UserProfil (){
                             if(msg.author_id === userData._id)
                                 return <Message id={msg._id} author={msg.author} contenu={msg.message} likes={msg.likers.length} date = {msg.createdAt}/>;
                         })}
-                    </div>      
+                    </div>
                 </div>
             </div>
           )
